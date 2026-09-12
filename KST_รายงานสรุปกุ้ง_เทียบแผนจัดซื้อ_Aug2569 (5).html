@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รายงานสรุปกุ้ง (ดิบ+ต้ม) เทียบแผนจัดซื้อ - สิงหาคม 2569</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+:root {
+  --navy:#0D1B2E; --navy2:#132842; --gold:#C8982A; --gold-l:#E8C874;
+  --bg:#F5F6F8; --card:#FFFFFF; --text:#1B2430; --muted:#6B7686;
+  --green:#1F8A55; --red:#C1432E; --border:#E4E7EC;
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:'Noto Sans Thai',sans-serif; padding-block:24px; }
+.wrap { max-width:1180px; margin:0 auto; padding:0 16px; }
+header.top { background:linear-gradient(135deg,var(--navy),var(--navy2)); color:#fff; border-radius:14px; padding:28px 32px; margin-bottom:20px; position:relative; overflow:hidden; }
+header.top::after { content:""; position:absolute; right:-40px; top:-40px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(200,152,42,.35), transparent 70%); }
+header.top h1 { margin:0 0 6px; font-size:1.6rem; font-weight:800; }
+header.top .sub { color:var(--gold-l); font-family:'DM Mono',monospace; font-size:.85rem; }
+header.top .byline { margin-top:14px; font-size:.8rem; color:#C9D2E0; }
+.section { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; margin-bottom:18px; }
+.section h2 { font-size:1.05rem; margin:0 0 14px; color:var(--navy); border-left:4px solid var(--gold); padding-left:10px; }
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; }
+.kpi { background:var(--navy); color:#fff; border-radius:10px; padding:16px; }
+.kpi .label { font-size:.72rem; color:var(--gold-l); text-transform:uppercase; letter-spacing:.03em; }
+.kpi .value { font-family:'DM Mono',monospace; font-size:1.5rem; font-weight:600; margin-top:4px; }
+.kpi .note { font-size:.72rem; color:#AEBBD0; margin-top:2px; }
+table { width:100%; border-collapse:collapse; font-size:.82rem; }
+th, td { padding:7px 9px; border-bottom:1px solid var(--border); text-align:left; white-space:nowrap; }
+th { background:#F0F2F5; color:var(--navy); font-weight:600; position:sticky; top:0; }
+td.num, th.num { text-align:right; font-family:'DM Mono',monospace; }
+tr:hover td { background:#FBF8F0; }
+.over { color:var(--green); font-weight:600; }
+.under { color:var(--red); font-weight:600; }
+.tbl-scroll { overflow-x:auto; }
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+@media (max-width:760px) { .two-col { grid-template-columns:1fr; } }
+.line-tag { display:inline-block; background:var(--gold); color:var(--navy); font-weight:700; font-size:.75rem; padding:2px 10px; border-radius:20px; margin-bottom:10px; }
+ul.issues { margin:0; padding-left:20px; font-size:.85rem; line-height:1.7; }
+ul.issues li b { color:var(--navy); }
+.chart-box { position:relative; height:220px; margin-top:10px; }
+footer { text-align:center; font-size:.75rem; color:var(--muted); margin-top:20px; padding-bottom:10px; }
+.badge-warn { background:#FDEDE9; color:var(--red); padding:2px 8px; border-radius:6px; font-size:.72rem; }
+.badge-ok { background:#E9F7EF; color:var(--green); padding:2px 8px; border-radius:6px; font-size:.72rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="sub">KST · Raw Material Purchasing Department</div>
+  <h1>รายงานสรุปการผลิตกุ้ง (เป็นดิบ + เป็นต้ม) เทียบแผนจัดซื้อ — เดือนสิงหาคม 2569</h1>
+  <div class="sub">Reconciliation Report: Production vs Procurement Plan (PLAN_DAILY) — August 2026</div>
+  <div class="byline">Torsak Arunpan · AI Strategist &amp; ฝ่ายจัดซื้อวัตถุดิบ · KST &nbsp;|&nbsp; จัดทำเมื่อ 12/09/2026 07:57</div>
+</header>
+
+<div class="section">
+  <h2>ภาพรวม (KPI)</h2>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="label">น้ำหนัก Farm รวม</div><div class="value">255,210 kg</div><div class="note">ดิบ 46,475 + ต้ม 208,735</div></div>
+    <div class="kpi"><div class="label">น้ำหนักรับเข้า KST รวม</div><div class="value">269,801 kg</div><div class="note">ดิบ 49,114 + ต้ม 220,686 (KST/Farm 105.72%)</div></div>
+    <div class="kpi"><div class="label">FG รวม</div><div class="value">213,998 kg</div><div class="note">%FG/KST ดิบ 78.9% · ต้ม 79.4%</div></div>
+    <div class="kpi"><div class="label">แผนจัดซื้อรวม (PLAN_DAILY)</div><div class="value">261,500 kg</div><div class="note">ผลต่าง 8,300.8 kg</div></div>
+    <div class="kpi"><div class="label">รับจริง vs แผน</div><div class="value">103.2%</div><div class="note">เกินแผน</div></div>
+    <div class="kpi"><div class="label">% Grade (ดิบ, ของ FG)</div><div class="value">A 100.0%</div><div class="note">B 0.0% · C 0.0% &nbsp;|&nbsp; 6 วัน / 10 ลอต</div></div>
+    <div class="kpi"><div class="label">% Grade (ต้ม, ของ FG)</div><div class="value">A 91.0%</div><div class="note">B+ 4.6% · B 4.4% &nbsp;|&nbsp; 20 วัน / 35 ลอต</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Weight Flow — กุ้งเป็นดิบ (Raw Head On, Black Tiger กุลาดำ)</h2>
+  <span class="line-tag">กุ้งเป็นดิบ (Raw Head On - Black Tiger กุลาดำ)</span>
+  <div class="chart-box"><canvas id="dibChart"></canvas></div>
+  <div class="tbl-scroll" style="margin-top:14px;">
+  <table>
+    <thead><tr><th>วันที่</th><th class="num">ลอต</th><th class="num">น้ำหนัก Farm</th><th class="num">น้ำหนัก KST</th>
+    <th class="num">คัดออก</th><th class="num">เข้าผลิต</th><th class="num">FG</th><th class="num">%FG/KST</th>
+    <th class="num">แผน (PLAN_DAILY)</th><th class="num">ผลต่าง</th><th class="num">% เทียบแผน</th></tr></thead>
+    <tbody><tr>
+<td>2026-08-03</td><td>1</td>
+<td class='num'>3,562</td><td class='num'>3,705</td>
+<td class='num'>712</td><td class='num'>2,845</td>
+<td class='num'>2,846</td>
+<td class='num'>76.83%</td>
+<td class='num'>3,500</td>
+<td class='num over'>204.7</td>
+<td class='num over'>105.8%</td>
+</tr><tr>
+<td>2026-08-04</td><td>2</td>
+<td class='num'>12,355</td><td class='num'>13,052</td>
+<td class='num'>1,273</td><td class='num'>11,066</td>
+<td class='num'>11,118</td>
+<td class='num'>85.18%</td>
+<td class='num'>12,000</td>
+<td class='num over'>1,051.6</td>
+<td class='num over'>108.8%</td>
+</tr><tr>
+<td>2026-08-05</td><td>1</td>
+<td class='num'>5,033</td><td class='num'>5,282</td>
+<td class='num'>546</td><td class='num'>4,466</td>
+<td class='num'>4,500</td>
+<td class='num'>85.19%</td>
+<td class='num'>4,500</td>
+<td class='num over'>781.8</td>
+<td class='num over'>117.4%</td>
+</tr><tr>
+<td>2026-08-07</td><td>3</td>
+<td class='num'>13,651</td><td class='num'>14,546</td>
+<td class='num'>1,693</td><td class='num'>11,947</td>
+<td class='num'>12,040</td>
+<td class='num'>82.77%</td>
+<td class='num'>14,000</td>
+<td class='num '>546.2</td>
+<td class='num '>103.9%</td>
+</tr><tr>
+<td>2026-08-13</td><td>1</td>
+<td class='num'>6,074</td><td class='num'>6,468</td>
+<td class='num'>1,296</td><td class='num'>4,773</td>
+<td class='num'>4,821</td>
+<td class='num'>74.54%</td>
+<td class='num'>4,500</td>
+<td class='num over'>1,967.7</td>
+<td class='num over'>143.7%</td>
+</tr><tr>
+<td>2026-08-18</td><td>2</td>
+<td class='num'>5,799</td><td class='num'>6,062</td>
+<td class='num'>2,363</td><td class='num'>3,433</td>
+<td class='num'>3,451</td>
+<td class='num'>56.93%</td>
+<td class='num'>7,000</td>
+<td class='num under'>-937.5</td>
+<td class='num under'>86.6%</td>
+</tr></tbody>
+    <tfoot><tr style="font-weight:700;background:#F0F2F5;">
+      <td>รวม</td><td class="num">10</td>
+      <td class="num">46,475</td><td class="num">49,114</td>
+      <td class="num">7,885</td><td class="num">38,529</td>
+      <td class="num">38,776</td><td class="num">78.95%</td>
+      <td class="num">45,500</td>
+      <td class="num">3,614.5</td><td class="num">107.9%</td>
+    </tr></tfoot>
+  </table>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Weight Flow — กุ้งเป็นต้ม (Cook Head On, White กุ้งขาว)</h2>
+  <span class="line-tag">กุ้งเป็นต้ม (Cook Head On - White กุ้งขาว)</span>
+  <div class="chart-box"><canvas id="tomChart"></canvas></div>
+  <div class="tbl-scroll" style="margin-top:14px;">
+  <table>
+    <thead><tr><th>วันที่</th><th class="num">ลอต</th><th class="num">น้ำหนัก Farm</th><th class="num">น้ำหนัก KST</th>
+    <th class="num">คัดออก</th><th class="num">เข้าต้ม</th><th class="num">FG</th><th class="num">%FG/KST</th>
+    <th class="num">%A</th><th class="num">%B+</th><th class="num">%B</th>
+    <th class="num">%ตาย</th><th class="num">%นิ่ม</th>
+    <th class="num">แผน (PLAN_DAILY)</th><th class="num">ผลต่าง</th><th class="num">% เทียบแผน</th></tr></thead>
+    <tbody><tr>
+<td>2026-08-05</td><td>1</td>
+<td class='num'>7,442</td><td class='num'>7,918</td>
+<td class='num'>641</td><td class='num'>6,802</td>
+<td class='num'>6,839</td>
+<td class='num'>86.37%</td>
+<td class='num'>82.64%</td>
+<td class='num'>1.30%</td>
+<td class='num'>2.43%</td>
+<td class='num'>2.73%</td>
+<td class='num'>2.17%</td>
+<td class='num'>8,000</td>
+<td class='num '>-81.8</td>
+<td class='num '>99.0%</td>
+</tr><tr>
+<td>2026-08-06</td><td>3</td>
+<td class='num'>12,237</td><td class='num'>12,919</td>
+<td class='num'>1,803</td><td class='num'>10,434</td>
+<td class='num'>10,512</td>
+<td class='num'>81.37%</td>
+<td class='num'>67.80%</td>
+<td class='num'>10.77%</td>
+<td class='num'>2.80%</td>
+<td class='num'>7.76%</td>
+<td class='num'>5.31%</td>
+<td class='num'>12,000</td>
+<td class='num over'>919.1</td>
+<td class='num over'>107.7%</td>
+</tr><tr>
+<td>2026-08-13</td><td>1</td>
+<td class='num'>5,350</td><td class='num'>5,561</td>
+<td class='num'>845</td><td class='num'>4,305</td>
+<td class='num'>4,336</td>
+<td class='num'>77.96%</td>
+<td class='num'>70.58%</td>
+<td class='num'>4.15%</td>
+<td class='num'>3.23%</td>
+<td class='num'>4.57%</td>
+<td class='num'>7.28%</td>
+<td class='num'>7,500</td>
+<td class='num under'>-1,938.6</td>
+<td class='num under'>74.2%</td>
+</tr><tr>
+<td>2026-08-14</td><td>1</td>
+<td class='num'>9,488</td><td class='num'>9,962</td>
+<td class='num'>900</td><td class='num'>7,953</td>
+<td class='num'>7,977</td>
+<td class='num'>80.08%</td>
+<td class='num'>73.34%</td>
+<td class='num'>1.47%</td>
+<td class='num'>5.26%</td>
+<td class='num'>5.14%</td>
+<td class='num'>2.25%</td>
+<td class='num'>9,000</td>
+<td class='num over'>961.7</td>
+<td class='num over'>110.7%</td>
+</tr><tr>
+<td>2026-08-15</td><td>3</td>
+<td class='num'>12,149</td><td class='num'>12,798</td>
+<td class='num'>1,135</td><td class='num'>10,487</td>
+<td class='num'>10,551</td>
+<td class='num'>82.44%</td>
+<td class='num'>70.56%</td>
+<td class='num'>8.51%</td>
+<td class='num'>3.37%</td>
+<td class='num'>4.76%</td>
+<td class='num'>3.19%</td>
+<td class='num'>12,500</td>
+<td class='num '>297.8</td>
+<td class='num '>102.4%</td>
+</tr><tr>
+<td>2026-08-16</td><td>2</td>
+<td class='num'>12,808</td><td class='num'>13,349</td>
+<td class='num'>1,059</td><td class='num'>11,483</td>
+<td class='num'>11,591</td>
+<td class='num'>86.83%</td>
+<td class='num'>79.17%</td>
+<td class='num'>6.53%</td>
+<td class='num'>1.13%</td>
+<td class='num'>2.87%</td>
+<td class='num'>4.39%</td>
+<td class='num'>15,000</td>
+<td class='num under'>-1,650.9</td>
+<td class='num under'>89.0%</td>
+</tr><tr>
+<td>2026-08-17</td><td>2</td>
+<td class='num'>13,449</td><td class='num'>14,173</td>
+<td class='num'>2,005</td><td class='num'>10,508</td>
+<td class='num'>10,523</td>
+<td class='num'>74.25%</td>
+<td class='num'>71.13%</td>
+<td class='num'>0.73%</td>
+<td class='num'>2.39%</td>
+<td class='num'>7.29%</td>
+<td class='num'>4.46%</td>
+<td class='num'>13,500</td>
+<td class='num '>672.8</td>
+<td class='num '>105.0%</td>
+</tr><tr>
+<td>2026-08-18</td><td>1</td>
+<td class='num'>4,656</td><td class='num'>4,907</td>
+<td class='num'>402</td><td class='num'>4,255</td>
+<td class='num'>4,259</td>
+<td class='num'>86.79%</td>
+<td class='num'>71.41%</td>
+<td class='num'>12.91%</td>
+<td class='num'>2.47%</td>
+<td class='num'>1.24%</td>
+<td class='num'>6.88%</td>
+<td class='num'>6,000</td>
+<td class='num under'>-1,093.1</td>
+<td class='num under'>81.8%</td>
+</tr><tr>
+<td>2026-08-19</td><td>2</td>
+<td class='num'>13,200</td><td class='num'>13,898</td>
+<td class='num'>1,918</td><td class='num'>10,229</td>
+<td class='num'>10,234</td>
+<td class='num'>73.64%</td>
+<td class='num'>69.42%</td>
+<td class='num'>1.81%</td>
+<td class='num'>2.41%</td>
+<td class='num'>8.67%</td>
+<td class='num'>4.64%</td>
+<td class='num'>13,000</td>
+<td class='num over'>897.9</td>
+<td class='num over'>106.9%</td>
+</tr><tr>
+<td>2026-08-20</td><td>3</td>
+<td class='num'>14,369</td><td class='num'>16,537</td>
+<td class='num'>2,979</td><td class='num'>10,628</td>
+<td class='num'>10,659</td>
+<td class='num'>64.45%</td>
+<td class='num'>56.15%</td>
+<td class='num'>2.49%</td>
+<td class='num'>5.82%</td>
+<td class='num'>6.25%</td>
+<td class='num'>5.60%</td>
+<td class='num'>15,000</td>
+<td class='num over'>1,537.0</td>
+<td class='num over'>110.2%</td>
+</tr><tr>
+<td>2026-08-21</td><td>2</td>
+<td class='num'>14,685</td><td class='num'>15,324</td>
+<td class='num'>1,920</td><td class='num'>12,510</td>
+<td class='num'>12,562</td>
+<td class='num'>81.98%</td>
+<td class='num'>69.95%</td>
+<td class='num'>5.30%</td>
+<td class='num'>6.73%</td>
+<td class='num'>4.13%</td>
+<td class='num'>7.65%</td>
+<td class='num'>15,000</td>
+<td class='num '>323.6</td>
+<td class='num '>102.2%</td>
+</tr><tr>
+<td>2026-08-22</td><td>2</td>
+<td class='num'>12,664</td><td class='num'>13,215</td>
+<td class='num'>1,950</td><td class='num'>10,117</td>
+<td class='num'>10,167</td>
+<td class='num'>76.94%</td>
+<td class='num'>68.92%</td>
+<td class='num'>2.97%</td>
+<td class='num'>5.04%</td>
+<td class='num'>9.34%</td>
+<td class='num'>5.02%</td>
+<td class='num'>12,500</td>
+<td class='num over'>715.4</td>
+<td class='num over'>105.7%</td>
+</tr><tr>
+<td>2026-08-23</td><td>2</td>
+<td class='num'>8,253</td><td class='num'>8,622</td>
+<td class='num'>713</td><td class='num'>6,795</td>
+<td class='num'>6,801</td>
+<td class='num'>78.87%</td>
+<td class='num'>72.48%</td>
+<td class='num'>3.70%</td>
+<td class='num'>2.70%</td>
+<td class='num'>2.61%</td>
+<td class='num'>4.34%</td>
+<td class='num'>9,500</td>
+<td class='num '>-877.9</td>
+<td class='num '>90.8%</td>
+</tr><tr>
+<td>2026-08-24</td><td>2</td>
+<td class='num'>10,629</td><td class='num'>11,185</td>
+<td class='num'>961</td><td class='num'>9,250</td>
+<td class='num'>9,257</td>
+<td class='num'>82.76%</td>
+<td class='num'>76.97%</td>
+<td class='num'>2.25%</td>
+<td class='num'>3.55%</td>
+<td class='num'>3.43%</td>
+<td class='num'>4.71%</td>
+<td class='num'>11,500</td>
+<td class='num '>-314.6</td>
+<td class='num '>97.3%</td>
+</tr><tr>
+<td>2026-08-25</td><td>2</td>
+<td class='num'>12,388</td><td class='num'>12,915</td>
+<td class='num'>1,917</td><td class='num'>10,470</td>
+<td class='num'>10,478</td>
+<td class='num'>81.13%</td>
+<td class='num'>75.90%</td>
+<td class='num'>1.48%</td>
+<td class='num'>3.75%</td>
+<td class='num'>6.38%</td>
+<td class='num'>5.89%</td>
+<td class='num'>13,000</td>
+<td class='num '>-84.8</td>
+<td class='num '>99.3%</td>
+</tr><tr>
+<td>2026-08-26</td><td>1</td>
+<td class='num'>10,560</td><td class='num'>11,187</td>
+<td class='num'>2,120</td><td class='num'>8,441</td>
+<td class='num'>8,446</td>
+<td class='num'>75.50%</td>
+<td class='num'>68.38%</td>
+<td class='num'>3.45%</td>
+<td class='num'>3.67%</td>
+<td class='num'>10.46%</td>
+<td class='num'>8.39%</td>
+<td class='num'>10,000</td>
+<td class='num over'>1,187.2</td>
+<td class='num over'>111.9%</td>
+</tr><tr>
+<td>2026-08-27</td><td>2</td>
+<td class='num'>11,939</td><td class='num'>12,577</td>
+<td class='num'>1,878</td><td class='num'>10,061</td>
+<td class='num'>10,069</td>
+<td class='num'>80.06%</td>
+<td class='num'>75.11%</td>
+<td class='num'>1.81%</td>
+<td class='num'>3.14%</td>
+<td class='num'>4.31%</td>
+<td class='num'>5.35%</td>
+<td class='num'>11,500</td>
+<td class='num over'>1,076.7</td>
+<td class='num over'>109.4%</td>
+</tr><tr>
+<td>2026-08-28</td><td>1</td>
+<td class='num'>11,055</td><td class='num'>11,707</td>
+<td class='num'>1,122</td><td class='num'>9,932</td>
+<td class='num'>10,011</td>
+<td class='num'>85.52%</td>
+<td class='num'>82.20%</td>
+<td class='num'>0.87%</td>
+<td class='num'>2.45%</td>
+<td class='num'>3.92%</td>
+<td class='num'>4.27%</td>
+<td class='num'>9,000</td>
+<td class='num over'>2,706.6</td>
+<td class='num over'>130.1%</td>
+</tr><tr>
+<td>2026-08-30</td><td>1</td>
+<td class='num'>7,347</td><td class='num'>7,719</td>
+<td class='num'>951</td><td class='num'>6,396</td>
+<td class='num'>6,401</td>
+<td class='num'>82.93%</td>
+<td class='num'>79.67%</td>
+<td class='num'>1.35%</td>
+<td class='num'>1.90%</td>
+<td class='num'>6.05%</td>
+<td class='num'>5.70%</td>
+<td class='num'>8,000</td>
+<td class='num '>-281.5</td>
+<td class='num '>96.5%</td>
+</tr><tr>
+<td>2026-08-31</td><td>1</td>
+<td class='num'>4,066</td><td class='num'>4,214</td>
+<td class='num'>534</td><td class='num'>3,532</td>
+<td class='num'>3,550</td>
+<td class='num'>84.25%</td>
+<td class='num'>82.70%</td>
+<td class='num'>0.48%</td>
+<td class='num'>1.06%</td>
+<td class='num'>5.37%</td>
+<td class='num'>6.86%</td>
+<td class='num'>4,500</td>
+<td class='num '>-286.4</td>
+<td class='num '>93.6%</td>
+</tr></tbody>
+    <tfoot><tr style="font-weight:700;background:#F0F2F5;">
+      <td>รวม</td><td class="num">35</td>
+      <td class="num">208,735</td><td class="num">220,686</td>
+      <td class="num">27,755</td><td class="num">174,587</td>
+      <td class="num">175,222</td><td class="num">79.40%</td>
+      <td class="num">72.27%</td>
+      <td class="num">3.64%</td>
+      <td class="num">3.49%</td>
+      <td class="num">5.65%</td>
+      <td class="num">5.15%</td>
+      <td class="num">216,000</td>
+      <td class="num">4,686.4</td><td class="num">102.2%</td>
+    </tr></tfoot>
+  </table>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Grade Analysis</h2>
+  <div class="two-col">
+    <div>
+      <h3 style="font-size:.9rem;color:var(--navy);">กุ้งเป็นดิบ</h3>
+      <table><thead><tr><th>เกรด</th><th class="num">น้ำหนัก (kg)</th><th class="num">% ของ FG</th></tr></thead>
+      <tbody><tr><td>A</td><td class='num'>38,776</td><td class='num'>100.00%</td></tr><tr><td>B</td><td class='num'>0</td><td class='num'>0.00%</td></tr><tr><td>C</td><td class='num'>0</td><td class='num'>0.00%</td></tr></tbody></table>
+    </div>
+    <div>
+      <h3 style="font-size:.9rem;color:var(--navy);">กุ้งเป็นต้ม</h3>
+      <table><thead><tr><th>เกรด</th><th class="num">น้ำหนัก (kg)</th><th class="num">% ของ FG</th><th class="num">% ของ KST</th></tr></thead>
+      <tbody><tr><td>A</td><td class='num'>159,492</td><td class='num'>91.02%</td><td class='num'>72.27%</td></tr><tr><td>B+</td><td class='num'>8,039</td><td class='num'>4.59%</td><td class='num'>3.64%</td></tr><tr><td>B</td><td class='num'>7,691</td><td class='num'>4.39%</td><td class='num'>3.49%</td></tr></tbody></table>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>QC / Defect Profile — กุ้งเป็นต้ม</h2>
+  <p style="font-size:.85rem;color:var(--muted);">Total defect เฉลี่ยถ่วงน้ำหนัก (ต่อ FG) = <b style="color:var(--navy)">25.63%</b> — องค์ประกอบหลัก (เฉลี่ย % ของสุ่มตรวจ):</p>
+  <div class="chart-box"><canvas id="defectChart"></canvas></div>
+</div>
+
+<div class="section">
+  <h2>Supplier Summary</h2>
+  <div class="two-col">
+    <div>
+      <h3 style="font-size:.9rem;color:var(--navy);">กุ้งเป็นดิบ — Top Suppliers</h3>
+      <div class="tbl-scroll"><table><thead><tr><th>Supplier</th><th>Farm Code</th><th class="num">ลอต</th><th class="num">kg</th><th class="num">% ของรวม</th><th class="num">Yield เฉลี่ย</th></tr></thead>
+      <tbody><tr><td>สัน-เต๋า ปัตตานี</td><td>6THZ, 6TIE</td>
+<td class='num'>2</td><td class='num'>15,141</td>
+<td class='num'>30.8%</td><td class='num'>100.52%</td></tr><tr><td>ภิรมย์ หัวไทร</td><td>6TIA, 6TIG</td>
+<td class='num'>2</td><td class='num'>11,651</td>
+<td class='num'>23.7%</td><td class='num'>100.55%</td></tr><tr><td>พันทวีสินธุ์ หัวไทร</td><td>6THY, 6TIB</td>
+<td class='num'>2</td><td class='num'>8,987</td>
+<td class='num'>18.3%</td><td class='num'>100.41%</td></tr><tr><td>ภิรมย์ ตรัง</td><td>6TIH, 6TII</td>
+<td class='num'>2</td><td class='num'>6,062</td>
+<td class='num'>12.3%</td><td class='num'>100.54%</td></tr><tr><td>มุกดาวรรณ ควนเนียง</td><td>6TID</td>
+<td class='num'>1</td><td class='num'>3,771</td>
+<td class='num'>7.7%</td><td class='num'>100.91%</td></tr><tr><td>เต็มซีฟู้ด สตูล</td><td>6TIC</td>
+<td class='num'>1</td><td class='num'>3,503</td>
+<td class='num'>7.1%</td><td class='num'>101.42%</td></tr></tbody></table></div>
+    </div>
+    <div>
+      <h3 style="font-size:.9rem;color:var(--navy);">กุ้งเป็นต้ม — Top Suppliers</h3>
+      <div class="tbl-scroll"><table><thead><tr><th>Supplier</th><th>Farm Code</th><th class="num">ลอต</th><th class="num">kg</th><th class="num">% ของรวม</th><th class="num">Yield เฉลี่ย</th></tr></thead>
+      <tbody><tr><td>พรประเสริฐ ตรัง</td><td>6DBJ, 6DBL, 6DBU, 6DCD, 6DCE, 6DCH, 6DCJ</td>
+<td class='num'>7</td><td class='num'>46,201</td>
+<td class='num'>20.9%</td><td class='num'>100.30%</td></tr><tr><td>พรประเสริฐ สตูล</td><td>6DBD, 6DBX, 6DCQ, 6DCR</td>
+<td class='num'>4</td><td class='num'>31,163</td>
+<td class='num'>14.1%</td><td class='num'>100.23%</td></tr><tr><td>พันทวีสินธุ์ ตรัง</td><td>6DBK, 6DBM, 6DBY, 6DCB</td>
+<td class='num'>4</td><td class='num'>20,928</td>
+<td class='num'>9.5%</td><td class='num'>100.50%</td></tr><tr><td>สัน-เต๋า กระบี่</td><td>6DBZ, 6DCP</td>
+<td class='num'>2</td><td class='num'>16,569</td>
+<td class='num'>7.5%</td><td class='num'>100.44%</td></tr><tr><td>พันทวีสินธุ์ สตูล</td><td>6DBP, 6DBR, 6DCO</td>
+<td class='num'>3</td><td class='num'>13,650</td>
+<td class='num'>6.2%</td><td class='num'>100.22%</td></tr><tr><td>พันทวีสินธุ์ ระโนด</td><td>6DBT, 6DBW, 6DCK</td>
+<td class='num'>3</td><td class='num'>13,376</td>
+<td class='num'>6.1%</td><td class='num'>100.11%</td></tr><tr><td>มุกดาวรรณ สตูล</td><td>6DBN, 6DCI</td>
+<td class='num'>2</td><td class='num'>11,215</td>
+<td class='num'>5.1%</td><td class='num'>100.40%</td></tr><tr><td>ภิรมย์ นครศรีฯ</td><td>6DCM</td>
+<td class='num'>1</td><td class='num'>11,187</td>
+<td class='num'>5.1%</td><td class='num'>100.07%</td></tr></tbody></table></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Issues &amp; Observations</h2>
+  <ul class="issues"><li><b>2026-08-13</b> (กุ้งดิบ): รับเข้าจริง 6,468 kg สูงกว่าแผน 4,500 kg ถึง 143.7% ของแผน (+1,967.7 kg) — ตรวจสอบว่ามีลอตนอกแผนหรือแผนแจ้งซื้อคลาดเคลื่อน</li><li><b>2026-08-13</b> (กุ้งต้ม): รับเข้าจริง 5,561 kg ต่ำกว่าแผน 7,500 kg เหลือเพียง 74.2% ของแผน (-1,938.6 kg) — อาจมีลอตที่ยังไม่บันทึกลงชีทผลิต หรือเลื่อนส่งมอบ</li><li><b>2026-08-18</b> (กุ้งต้ม): รับเข้าจริง 4,907 kg ต่ำกว่าแผน 6,000 kg เหลือเพียง 81.8% ของแผน (-1,093.1 kg) — อาจมีลอตที่ยังไม่บันทึกลงชีทผลิต หรือเลื่อนส่งมอบ</li><li><b>2026-08-28</b> (กุ้งต้ม): รับเข้าจริง 11,707 kg สูงกว่าแผน 9,000 kg ถึง 130.1% ของแผน (+2,706.6 kg) — ตรวจสอบว่ามีลอตนอกแผนหรือแผนแจ้งซื้อคลาดเคลื่อน</li>
+    <li>ข้อมูล <b>PLAN_DAILY</b> ในไฟล์ Procurement_Master_File.xlsx มีรายการที่ตรงกับวันที่มีชีทผลิตจริงเป็นส่วนใหญ่ — %รับจริงเทียบแผนโดยรวมอยู่ที่ 107.9% (ดิบ) และ 102.2% (ต้ม) ซึ่งอยู่ในช่วงปกติของส่วนต่างจากการชั่งที่หน้าโรงงาน (ปกติ +3% ถึง +5%)</li>
+    <li>รายงานนี้อ่านจากไฟล์ที่แนบเข้ามาโดยตรง (ไม่ผ่าน SharePoint connector) ครอบคลุมทุกชีทและทุกลอตในเดือนสิงหาคม 2569 ของทั้งสองไฟล์ผลิต</li>
+  </ul>
+</div>
+
+<footer>รายงานฉบับนี้ตัดส่วน P&amp;L และ Sales P&amp;L ออกตามที่ร้องขอ · ที่มา: รายงานสรุปกุ้งดิบ/กุ้งต้มประจำวัน (Aug 2569) + Procurement_Master_File.xlsx (PLAN_DAILY) · จัดทำโดย Claude สำหรับ Torsak Arunpan</footer>
+</div>
+
+<script>
+const dibLabels = ["08-03", "08-04", "08-05", "08-07", "08-13", "08-18"];
+const dibKst = [3704.7, 13051.6, 5281.8, 14546.2, 6467.7, 6062.5];
+const dibPlan = [3500, 12000, 4500, 14000, 4500, 7000];
+const tomLabels = ["08-05", "08-06", "08-13", "08-14", "08-15", "08-16", "08-17", "08-18", "08-19", "08-20", "08-21", "08-22", "08-23", "08-24", "08-25", "08-26", "08-27", "08-28", "08-30", "08-31"];
+const tomKst = [7918.2, 12919.1, 5561.4, 9961.7, 12797.8, 13349.1, 14172.8, 4906.9, 13897.9, 16537.0, 15323.6, 13215.4, 8622.1, 11185.4, 12915.2, 11187.2, 12576.7, 11706.6, 7718.5, 4213.6];
+const tomPlan = [8000, 12000, 7500, 9000, 12500, 15000, 13500, 6000, 13000, 15000, 15000, 12500, 9500, 11500, 13000, 10000, 11500, 9000, 8000, 4500];
+const defectLabels = ["หัวระเบิด", "แก้มดำ", "แผล", "หัวโพรง", "เยื่อหัวบาง", "มันแตก", "สีซีด"];
+const defectValues = [6.54, 9.78, 0.73, 2.34, 2.65, 2.3, 0.18];
+
+function makeChart(id, labels, actual, plan) {
+  new Chart(document.getElementById(id), {
+    type: 'bar',
+    data: { labels: labels, datasets: [
+      { label:'รับจริง (KST)', data: actual, backgroundColor:'#0D1B2E', borderRadius:4 },
+      { label:'แผน (PLAN_DAILY)', data: plan, type:'line', borderColor:'#C8982A', backgroundColor:'#C8982A', tension:.3, pointRadius:3 }
+    ]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins: { legend: { position:'bottom', labels:{font:{size:10}} } },
+      scales: { y: { ticks:{font:{size:9}} }, x: { ticks:{font:{size:9}} } }
+    }
+  });
+}
+makeChart('dibChart', dibLabels, dibKst, dibPlan);
+makeChart('tomChart', tomLabels, tomKst, tomPlan);
+
+new Chart(document.getElementById('defectChart'), {
+  type: 'bar',
+  data: { labels: defectLabels, datasets: [{ label:'% เฉลี่ย', data: defectValues, backgroundColor:'#C1432E', borderRadius:4 }] },
+  options: { indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}} }
+});
+</script>
+</body>
+</html>
